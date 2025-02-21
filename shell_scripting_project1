@@ -1,0 +1,35 @@
+#!/bin/bash
+
+echo "Creating folder..."
+echo "##################"
+# Creates a new folder
+mkdir geeksforgeek
+
+cd geeksforgeek
+
+echo "Getting html..."
+echo "###############"
+# Downloads geeksforgeek html file
+wget --page-requisites https://www.geeksforgeeks.org/
+
+# Navigate into the directory
+echo "Navigating to the downloaded directory"
+echo "######################################"
+cd www.geeksforgeeks.org
+
+echo "Extracting URLs..."
+echo "##################"
+# Extracts all url with the patter https://www.geeksforgeeks.org
+cat index.html | grep -oP 'https://www.geeksforgeeks\.org[^" ]*' > url.txt
+
+# Move url.txt to geeksforgeek directory
+mv url.txt /home/martha/geeksforgeek
+
+# Navigates back to geeksforgeeks directory
+cd ..
+
+echo "Deleting www.geeksforgeeks.org directory..."
+echo "###########################################"
+
+# Deletes www.geeksforgeeks.org and its content
+rm -R www.geeksforgeeks.org
