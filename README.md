@@ -38,7 +38,8 @@ This prevents the loss of extracted data when the temporary directory is removed
 Move out of the www.geeksforgeeks.org directory and delete it since the HTML file is no longer needed.
 
 cd ..
-rm -rf www.geeksforgeeks.org
+
+rm -R www.geeksforgeeks.org
 
 * Additional Notes
 The script was written using the Nano editor.
